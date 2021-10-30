@@ -16,7 +16,7 @@ def init_graph(filename):
         for line in file:
             arr_str = line.split()
             verts_arcs_map[arr_str[0]] = arr_str[1:]
-    file.close()
+
     for vert in verts_arcs_map:
         for connection in verts_arcs_map[vert]:
             arc_wght = connection.split(',')
