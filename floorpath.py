@@ -1,4 +1,5 @@
 import networkx as nx
+import matplotlib.pyplot as plt
 
 G = nx.Graph()
 verts_arcs_map = {}
@@ -32,3 +33,16 @@ def fl_find_path(src, dst):
     path_edges = zip(path, path[1:])
     path_edges = set(path_edges) # add a set() path_edges = set(path_edges)after your zip() to get the shortest path color work
     return path
+
+def show_graph():
+    """Print unstructured graph through `matplotlib.pyplot`"""
+    pos = nx.spring_layout(G)
+    nx.draw_networkx(G, pos)
+    labels = nx.get_edge_attributes(G, 'weight')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels = labels, font_size = 7)
+    
+    colors = nx.get_edge_attributes(G,'color').values()
+    weights = nx.get_edge_attributes(G,'weight').values()
+
+    nx.draw(G, pos, edge_color=colors, width=list(weights))
+    plt.show()
