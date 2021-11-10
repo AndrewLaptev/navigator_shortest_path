@@ -1,0 +1,9 @@
+L1 11_floor,1 21_floor,1 3_floor,1
+L2 11_floor,1 21_floor,1 3_floor,1
+L3 12_floor,1 22_floor,1 3_floor,1
+L4 13_floor,1 22_floor,1 3_floor,1
+L5 14_floor,1 22_floor,1 3_floor,1
+L6 14_floor,1 23_floor,1
+L7* 21_floor,1 3_floor,1
+L8 22_floor,1 3_floor,1
+L9 23_floor,1 3_floor,1
