@@ -1,9 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-G = nx.Graph()
-verts_arcs_map = {}
-
 def init_graph(filename):
     """Initial undirect weighted graph from file
     Parameters
@@ -13,6 +10,9 @@ def init_graph(filename):
         It is mean Vertex1 connect with Vertex2 with weight,
         also Vertex1 connect with Vertex3 with weight2...
     """
+    G = nx.Graph()
+    verts_arcs_map = {}
+    
     with open(filename, "r") as file:
         for line in file:
             arr_str = line.split()
@@ -22,8 +22,9 @@ def init_graph(filename):
         for connection in verts_arcs_map[vert]:
             arc_wght = connection.split(',')
             G.add_edge(vert, arc_wght[0], weight = int(arc_wght[1]))
+    return G
 
-def fl_find_path(src, dst):
+def fl_find_path(G, src, dst):
     """Find shortest path between `src` and `dst` on floor
     Parameters
     ----------
@@ -34,7 +35,7 @@ def fl_find_path(src, dst):
     path_edges = set(path_edges) # add a set() path_edges = set(path_edges)after your zip() to get the shortest path color work
     return path
 
-def show_graph():
+def show_graph(G):
     """Print unstructured graph through `matplotlib.pyplot`"""
     pos = nx.spring_layout(G)
     nx.draw_networkx(G, pos)
